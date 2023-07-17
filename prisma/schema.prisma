@@ -12,6 +12,7 @@ model first_names {
   gender        String?
   race_id       Int?
   name          String?
+  description   Description[]
   races         races?  @relation(fields: [race_id], references: [race_id], onDelete: NoAction, onUpdate: NoAction)
 }
 
@@ -27,4 +28,10 @@ model second_names {
   race_id        Int?
   name           String?
   races          races?  @relation(fields: [race_id], references: [race_id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model Description {
+  id Int @id @default(autoincrement())
+  age Int
+  appearance String
 }
